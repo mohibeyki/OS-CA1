@@ -10,6 +10,7 @@
 
 #define TRUE             1
 #define FALSE            0
+#define perror writeErr
 
 int main (int argc, char *argv[]) {
 	int    i, len, rc, on = 1;
@@ -116,7 +117,7 @@ int main (int argc, char *argv[]) {
 					}
 
 					len = rc;
-					printf("   received : \"%s\"\n", buffer);
+					printf("  received : \"%s\"\n", buffer);
 
 					rc = send(i, buffer, len, 0);
 					if (rc < 0) {

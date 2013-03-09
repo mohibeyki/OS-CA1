@@ -1,7 +1,5 @@
 
 #include "util.h"
-#include <unistd.h>
-#include <stdarg.h>
 
 char* readLine() {
 	char* buf = (char*) malloc(sizeof(char));
@@ -57,4 +55,20 @@ int indexOf(char* src, char c) {
 			return i;
 	}
 	return -1;
+}
+
+char* itoa(int i) {
+	char* str = (char*) malloc(sizeof(char) * 20);
+	strcpy(str, "");
+	int k = i, j = 0;
+	while (k > 0) {
+		k /= 10;
+		j++;
+	}
+	str[j] = 0;
+	while (i > 0) {
+		str[--j] = i % 10 + '0';
+		i /= 10;
+	}
+	return str;
 }
