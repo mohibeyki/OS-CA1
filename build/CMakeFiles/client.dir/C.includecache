@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Consts/Consts.h
+/home/mohibeyki/Documents/OS/CA1/Common/Utilities/../Consts/Consts.h
 errno.h
 -
 fcntl.h
@@ -28,19 +28,11 @@ sys/types.h
 unistd.h
 -
 
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Utilities/FileUtil.h
+/home/mohibeyki/Documents/OS/CA1/Common/Utilities/FileUtil.c
+FileUtil.h
+/home/mohibeyki/Documents/OS/CA1/Common/Utilities/FileUtil.h
+../Consts/Consts.h
+/home/mohibeyki/Documents/OS/CA1/Common/Utilities/../Consts/Consts.h
 
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Utilities/IOUtil.h
-
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Utilities/StringUtil.h
-
-/home/mohibeyki/Documents/OS/CA1/Client/Client.c
-../Common/Consts/Consts.h
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Consts/Consts.h
-../Common/Utilities/IOUtil.h
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Utilities/IOUtil.h
-../Common/Utilities/FileUtil.h
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Utilities/FileUtil.h
-../Common/Utilities/StringUtil.h
-/home/mohibeyki/Documents/OS/CA1/Client/../Common/Utilities/StringUtil.h
+/home/mohibeyki/Documents/OS/CA1/Common/Utilities/FileUtil.h
 

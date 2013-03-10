@@ -7,7 +7,7 @@ int getROFile(char* fileName) {
 }
 
 int getWRFile(char* fileName) {
-	int k = creat(fileName, O_CREAT| S_IRWXU | S_IRWXG | S_IRWXO);
+	int k = creat(fileName, S_IRWXU | O_CREAT);
 	if( k >= 0)
 		return k;
 	return open(fileName,O_WRONLY);

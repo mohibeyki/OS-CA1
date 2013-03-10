@@ -21,16 +21,16 @@ int init() {
 		return -1;
 	}
 
-	int rc2 = setsockopt(listen_sd, SOL_SOCKET, SO_REUSEADDR, (char *) &on,
+	int rc = setsockopt(listen_sd, SOL_SOCKET, SO_REUSEADDR, (char*) &on,
 			sizeof(on));
-	if (rc2 < 0) {
+	if (rc < 0) {
 		writeErr("setsockopt() failed");
 		close(listen_sd);
 		return -1;
 	}
 
-	rc2 = ioctl(listen_sd, FIONBIO, (char *) &on);
-	if (rc2 < 0) {
+	rc = ioctl(listen_sd, FIONBIO, (char *) &on);
+	if (rc < 0) {
 		writeErr("ioctl() failed");
 		close(listen_sd);
 		return -1;
@@ -40,16 +40,16 @@ int init() {
 	addr.sin_family = AF_INET;
 	addr.sin_addr.s_addr = htonl(INADDR_ANY );
 	addr.sin_port = htons(SERVER_PORT);
-	rc2 = bind(listen_sd, (struct sockaddr *) &addr, sizeof(addr));
-	if (rc2 < 0) {
+	rc = bind(listen_sd, (struct sockaddr *) &addr, sizeof(addr));
+	if (rc < 0) {
 		println("bind() failed");
 		close(listen_sd);
 		return -1;
 	}
 	println("AHA2");
 
-	rc2 = listen(listen_sd, 5);
-	if (rc2 < 0) {
+	rc = listen(listen_sd, 5);
+	if (rc < 0) {
 		writeErr("listen() failed");
 		close(listen_sd);
 		return -1;
