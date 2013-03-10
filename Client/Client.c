@@ -36,9 +36,12 @@ int do_receive(char* output) {
 	return recv(sockfd, output, sizeof(char) * BUFFER_SIZE, 0);
 }
 
-int send_file(char send_buf[BUFFER_SIZE], int index, char next[BUFFER_SIZE],
-		char recv_buf[BUFFER_SIZE], char* line) {
-	strcat(send_buf, "share ");
+int send_file(int index, char next[BUFFER_SIZE], char* line) {
+	char send_buf[BUFFER_SIZE] = "share ";
+	char recv_buf[BUFFER_SIZE] = "";
+	char fileName[BUFFER_SIZE] = "";
+	char password[BUFFER_SIZE] = "";
+
 	index = nextToken(line, next, index);
 	int myFD = getROFile(next);
 	if (myFD == -1) {
@@ -46,10 +49,7 @@ int send_file(char send_buf[BUFFER_SIZE], int index, char next[BUFFER_SIZE],
 		return -1;
 	}
 
-	char fileName[BUFFER_SIZE] = "";
-	char passWord[BUFFER_SIZE] = "";
-
-	index = nextToken(line, passWord, index);
+	index = nextToken(line, password, index);
 	getFileName(next, fileName);
 	strcat(send_buf, fileName);
 	int k = do_send(send_buf);
@@ -64,7 +64,7 @@ int send_file(char send_buf[BUFFER_SIZE], int index, char next[BUFFER_SIZE],
 					return -1;
 				}
 				k = do_receive(recv_buf);
-				if (k >= 0 && strcmp("OK!", recv_buf) != 0) {
+				if (k >= 0 && strcmp("OK", recv_buf) != 0) {
 					println("interrupt from server");
 					return -1;
 				}
@@ -79,7 +79,7 @@ int send_file(char send_buf[BUFFER_SIZE], int index, char next[BUFFER_SIZE],
 				println("problem with finalize");
 				return -1;
 			}
-			k = do_send(passWord);
+			k = do_send(password);
 			if (k < 0) {
 				println("I Can't send Password");
 				return -1;
@@ -124,7 +124,7 @@ int do_command(char* line) {
 		}
 		k = 1;
 	} else if (strcmp(next, "share") == 0) {
-		send_file(send_buf, index, next, recv_buf, line);
+		send_file(index, next, line);
 		k = 2; // share
 	} else if (strcmp(next, "get-files-list") == 0)
 		k = 3; // share
@@ -141,7 +141,6 @@ int do_command(char* line) {
 			writeErr("Error is send\n");
 			return -1;
 		}
-
 		char recv_buf[BUFFER_SIZE];
 		len = do_receive(recv_buf);
 		print("  received '%s'\n", recv_buf);
@@ -222,7 +221,9 @@ int main(int argc, char *argv[]) {
 						IS_ALIVE = FALSE;
 				} else {
 					// Socket is hot, should now recv a message from server
-
+					do_receive(buffer);
+					println("%s", buffer);
+					do_send("OK");
 					break;
 				}
 			}

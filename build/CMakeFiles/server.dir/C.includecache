@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/mohibeyki/Documents/OS/CA1/Common/Utilities/../Consts/Consts.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Consts/Consts.h
 errno.h
 -
 fcntl.h
@@ -28,11 +28,43 @@ sys/types.h
 unistd.h
 -
 
-/home/mohibeyki/Documents/OS/CA1/Common/Utilities/FileUtil.c
-FileUtil.h
-/home/mohibeyki/Documents/OS/CA1/Common/Utilities/FileUtil.h
-../Consts/Consts.h
-/home/mohibeyki/Documents/OS/CA1/Common/Utilities/../Consts/Consts.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Objects/../Consts/Consts.h
+errno.h
+-
+fcntl.h
+-
+netinet/in.h
+-
+stdarg.h
+-
+string.h
+-
+sys/ioctl.h
+-
+sys/socket.h
+-
+sys/time.h
+-
+sys/types.h
+-
+unistd.h
+-
 
-/home/mohibeyki/Documents/OS/CA1/Common/Utilities/FileUtil.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Objects/DataObjects.h
+../Consts/Consts.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Objects/../Consts/Consts.h
+
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Utilities/FileUtil.h
+
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Utilities/StringUtil.h
+
+/home/mohibeyki/Documents/OS/CA1/Server/Server.c
+../Common/Consts/Consts.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Consts/Consts.h
+../Common/Utilities/StringUtil.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Utilities/StringUtil.h
+../Common/Objects/DataObjects.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Objects/DataObjects.h
+../Common/Utilities/FileUtil.h
+/home/mohibeyki/Documents/OS/CA1/Server/../Common/Utilities/FileUtil.h
 

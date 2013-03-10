@@ -35,7 +35,7 @@ int init() {
 		close(listen_sd);
 		return -1;
 	}
-	println("AHA1");
+
 	memset(&addr, 0, sizeof(addr));
 	addr.sin_family = AF_INET;
 	addr.sin_addr.s_addr = htonl(INADDR_ANY );
@@ -46,7 +46,6 @@ int init() {
 		close(listen_sd);
 		return -1;
 	}
-	println("AHA2");
 
 	rc = listen(listen_sd, 5);
 	if (rc < 0) {
@@ -123,7 +122,7 @@ int do_command(char* line, int num) {
 		do_recieve(recv_buf, clients[num].fd);
 		while(strcmp("BAZINGA", recv_buf) != 0) {
 			fprint(myFD, recv_buf);
-			do_send("OK!", clients[num].fd);
+			do_send("OK", clients[num].fd);
 			do_recieve(recv_buf, clients[num].fd);
 		}
 		do_send("give me Password", clients[num].fd);
