@@ -1,0 +1,2 @@
+/home/mohibeyki/Documents/OS/CA1/build/CMakeFiles/client.dir
+/home/mohibeyki/Documents/OS/CA1/build/CMakeFiles/server.dir

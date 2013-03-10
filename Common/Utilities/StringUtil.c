@@ -25,3 +25,44 @@ int indexOf(char* src, char c) {
 	}
 	return -1;
 }
+
+int convertIntToString(int d, char* output)
+{
+		//TODO negative doesn't work
+		int i = 0;
+		output[1] = 0;
+		if (d == 0)
+		{
+			output[i++] = '0';
+			output[i] = 0;
+			return i;
+		}
+		if (d < 0) {
+			d *= -1;
+//			output[i++] = '-';
+		}
+		while (d > 0) {
+			output[i++] = (d % 10) + '0';
+			d /= 10;
+		}
+		output[i] = 0;
+		i--;
+		int j = 0;
+		for (; j * 2 < i; j++) {
+			char c = output[j];
+			output[j] = output[i - j];
+			output[i - j] = c;
+		}
+		return i;
+}
+
+
+int getFileName(char* str, char* output)
+{
+	int size = strlen(str);
+	for(; size>=0; size--)
+		if( str[size] == '/')
+			break;
+	strcpy(output, str + size+1);
+}
+

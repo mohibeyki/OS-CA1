@@ -1,0 +1,1 @@
+/usr/bin/gcc      CMakeFiles/server.dir/Server/Server.c.o CMakeFiles/server.dir/Common/Objects/DataObjects.c.o CMakeFiles/server.dir/Common/Utilities/FileUtil.c.o CMakeFiles/server.dir/Common/Utilities/IOUtil.c.o CMakeFiles/server.dir/Common/Utilities/StringUtil.c.o  -o server -rdynamic 

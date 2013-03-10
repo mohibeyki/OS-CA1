@@ -8,7 +8,7 @@ int fWriteStr(int fd, char* tmp);
 int getROFile(char* fileName);
 int getWRFile(char* fileName);
 
-int freadSome(int fd, char* str, int count);
+int fReadSome(int fd, char* str, int count);
 
 int fWriteChar(int fd, char c);
 int fWriteInt(int fd, int d);
@@ -20,5 +20,7 @@ int fReadInt(int fd);
 
 int fscan(int fd, char* first, ...);
 int fReadLine(int fd, char* input);
+
+int fEndOfFile(int fd);
 
 #endif

@@ -8,7 +8,6 @@ int getROFile(char* fileName) {
 
 int getWRFile(char* fileName) {
 	int k = creat(fileName, O_CREAT| S_IRWXU | S_IRWXG | S_IRWXO);
-	print("S %d" , k);
 	if( k >= 0)
 		return k;
 	return open(fileName,O_WRONLY);
@@ -18,7 +17,7 @@ int fReadLine(int fd, char* input) {
 	char buf = 0;
 	int size = 0;
 	strcpy(input, "");
-	
+
 	int rc = read(fd, &buf, 1);
 	if (rc < 0)
 		return rc;
@@ -119,7 +118,7 @@ int fReadWord(int fd, char* output) {
 	char buf = 0;
 	int size = 0;
 	strcpy(output, "");
-	
+
 	int rc = read(fd, &buf, 1);
 	if (rc < 0)
 		return rc;
@@ -152,7 +151,7 @@ int fReadSome(int fd, char* str, int count) {
 			break;
 		str[size++] = buf;
 	}
-	str[size] = 0; 
+	str[size] = 0;
 	return size <= count ? size : -1;
 }
 

@@ -13,6 +13,8 @@
 #include <unistd.h>
 
 #define BUFFER_SIZE 128
+#define FILE_SIZE 20
+#define CLIENT_SIZE 10
 #define FALSE	0
 #define STDERR 2
 #define STDIN 0
